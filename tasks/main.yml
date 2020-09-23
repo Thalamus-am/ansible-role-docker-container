@@ -9,6 +9,7 @@
     restart: true
     restart_policy: always
     recreate: true
+    networks_cli_compatible: true
     purge_networks: true
     ports:
       - "{{ docker_container_bind_port }}:{{ docker_container_container_port }}"
