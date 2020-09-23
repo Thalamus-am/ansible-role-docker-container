@@ -1,0 +1,45 @@
+---
+galaxy_info:
+  role_name: docker-container
+  author: Karen Danielyan <karen@danielyans.com>
+  description: For deploying Nginx container
+  company: Thalamus.am
+  issue_tracker_url: https://github.com/Thalamus-am/ansible-role-docker-container/issues
+  license: Apache
+  min_ansible_version: 2.8
+  galaxy_tags: [development, system, thalamus, docker-container, nginx]
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Fedora
+      versions:
+        - 30
+        - 31
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+dependencies:
+  # from Galaxy
+  - src: geerlingguy.docker
+    tags:
+      - dependencies
+      - geerlingguy
+      - docker
+  # from GitHub
+  - src: https://github.com/Thalamus-am/ansible-role-user-config
+    tags:
+      - dependencies
+      - user-config
+      - ssh-config
+  - src: https://github.com/Thalamus-am/ansible-role-docker-config
+    tags:
+      - dependencies
+      - docker
+      - docker-config

@@ -1,0 +1,12 @@
+---
+# defaults file for docker_container
+docker_container_instance_name: nginx
+docker_container_app_name: nginx
+docker_container_image_version: latest
+docker_container_docker_image: "{{ docker_container_app_name }}:{{ docker_container_image_version }}"
+
+docker_container_volume_name: "{{ docker_container_instance_name }}-volume"
+
+docker_container_bind_port: "8080"
+docker_container_container_port: "80"
+docker_container_public_dns: localhost

@@ -1,0 +1,20 @@
+---
+# tasks file for docker_container
+- name: Deploy Docker Container
+  docker_container:
+    name: "{{ docker_container_instance_name }}"
+    hostname: "{{ docker_container_instance_name }}"
+    image: "{{ docker_container_docker_image }}"
+    state: started
+    restart: true
+    restart_policy: always
+    recreate: true
+    purge_networks: true
+    ports:
+      - "{{ docker_container_bind_port }}:{{ docker_container_container_port }}"
+  register: docker_container_status
+
+- name: Debug
+  debug:
+    msg: "{{ docker_container_status.ansible_facts.docker_container['State']['Status'] }}"
+  when: docker_container_status.ansible_facts.docker_container is defined
