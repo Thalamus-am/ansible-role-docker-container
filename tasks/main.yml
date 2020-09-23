@@ -1,5 +1,9 @@
 ---
 # tasks file for docker_container
+- name: Create a network
+  docker_network:
+    name: "{{ docker_container_network }}"
+
 - name: Deploy Docker Container
   docker_container:
     name: "{{ docker_container_instance_name }}"
@@ -13,6 +17,8 @@
     purge_networks: true
     ports:
       - "{{ docker_container_bind_port }}:{{ docker_container_container_port }}"
+    networks:
+      - name: "{{ docker_container_network }}"
   register: docker_container_status
 
 - name: Debug
